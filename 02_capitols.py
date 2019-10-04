@@ -8,8 +8,6 @@ def main():
         temp = line.split(",")
         State_to_Capitol[temp[0].lower()] = temp[1][0:(len(temp[1])-1)]
         Capitol_to_State[temp[1][0:(len(temp[1])-1)].lower()] = temp[0]
-        print(State_to_Capitol)
-        print(Capitol_to_State)
 
     condition = True
     while condition:
