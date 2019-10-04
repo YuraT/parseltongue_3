@@ -6,8 +6,10 @@ def main():
     for line in capitols:
         temp = []
         temp = line.split(",")
-        State_to_Capitol[temp[0].lower()] = temp[1]
-        Capitol_to_State[temp[1].lower()] = temp[0]
+        State_to_Capitol[temp[0].lower()] = temp[1][0:(len(temp[1])-1)]
+        Capitol_to_State[temp[1][0:(len(temp[1])-1)].lower()] = temp[0]
+        print(State_to_Capitol)
+        print(Capitol_to_State)
 
     condition = True
     while condition:
@@ -15,17 +17,16 @@ def main():
 
         if user_input == "done":
             condition = False
+
         else:
-            match_found = False
-            for item in State_to_Capitol:
-                if item == user_input:
-                    print (State_to_Capitol[item])
-                    match_found = True
-            if not(match_found): 
-                for item in Capitol_to_State:
-                    if item == user_input:
-                        print (Capitol_to_State[item])
-            if not(match_found):
+            if user_input in State_to_Capitol:
+                print(State_to_Capitol[user_input])
+                
+            elif user_input in Capitol_to_State:
+                    print (Capitol_to_State[user_input])
+            else:
                 print("nil")
+
+
     capitols.close()
 main()
